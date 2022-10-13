@@ -24,13 +24,16 @@ export default function Trivia({
         const handleClick = (a) =>{
             setSelectedAnswer(a);
             setClassName("answer active");
-            delay(3000, () => 
+            delay(500, () => 
                 setClassName(a.correct ? "answer correct" : "answer wrong")
             );
-            delay(6000, () => {
+            delay(4000, () => {
                 if (a.correct) {
                     setQuestionNumber((prev) => prev + 1)
                     setSelectedAnswer(null)
+                    if (questionNumber === 15){
+                        setStop(true);
+                    }
                 } else {
                     setStop(true);
                 }
@@ -54,15 +57,3 @@ export default function Trivia({
     </div>
   )
 }
-
-/* 
-<div className="trivia">
-    <div className="question">What is csm op1 called?</div>
-    <div className="answers">
-        <div className="answer wrong">KICK BACK</div>
-        <div className="answer">CHAINSAW BLOOD</div>
-        <div className="answer">KYOURAN HEY KIDS</div>
-        <div className="answer">REMEMBER</div>
-    </div>
-</div>
-*/

@@ -1,5 +1,6 @@
 import {useRef} from "react";
 
+// start screen for the game
 export default function Start({setUsername}) {
 
     const inputRef = useRef();
@@ -12,8 +13,9 @@ export default function Start({setUsername}) {
         <input 
         placeholder="enter your name" 
         className="startInput"
+        ref={inputRef}
         />
-        <button className="startButton">
+        <button className="startButton" onClick={handleClick}>
             Start
         </button>
     </div>
